@@ -4,7 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cbd3127-e13a-4547-8a8b-1c982b03825a" name="변경" comment="" />
+    <list default="true" id="1cbd3127-e13a-4547-8a8b-1c982b03825a" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(auth)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(auth)/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(auth)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(auth)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(auth)/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(auth)/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(main)/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(main)/(tabs)/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(main)/(tabs)/feed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(main)/(tabs)/feed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(main)/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(main)/(tabs)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(main)/(tabs)/my.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(main)/(tabs)/my.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(main)/(tabs)/rank.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(main)/(tabs)/rank.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(main)/(tabs)/stats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(main)/(tabs)/stats.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(main)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(main)/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(main)/record/[date].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(main)/record/[date].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(main)/record/create.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(main)/record/create.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(main)/record/edit/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(main)/record/edit/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(main)/search/pool.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(main)/search/pool.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(onboarding)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(onboarding)/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/(onboarding)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/(onboarding)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/+html.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/+html.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/+not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/+not-found.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/app/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/app/modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/assets/fonts/SpaceMono-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/assets/fonts/SpaceMono-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/assets/images/adaptive-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/assets/images/adaptive-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/assets/images/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/assets/images/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/assets/images/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/assets/images/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/assets/images/splash-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src/assets/images/splash-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/tsconfig.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +48,28 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1761625162" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/../../../내 드라이브/2025/heum-app" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -43,12 +94,13 @@
     "nodejs_package_manager_path": "npm",
     "npm.android.executor": "Run",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\almus\\2025\\heum-app\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "/Users/arkim/Library/CloudStorage/GoogleDrive-shadowbubobubo@gmail.com/내 드라이브/2025/heum-app/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../../../내 드라이브/2025/heum-app/src" />
       <recent name="C:\Users\almus\2025\heum-app\src" />
       <recent name="C:\Users\almus\2025\heum-app\app\(main)" />
     </key>
@@ -86,6 +138,7 @@
       <updated>1761562472345</updated>
       <workItem from="1761562475278" duration="164000" />
       <workItem from="1761562662402" duration="15452000" />
+      <workItem from="1761612041647" duration="2182000" />
     </task>
     <servers />
   </component>
