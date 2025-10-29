@@ -1,6 +1,6 @@
 {
   "name": "heum-app",
-  "main": "./src/app/_layout.tsx",
+  "main": "expo-router/entry",
   "version": "1.0.0",
   "engines": {
     "node": ">=22.0.0",
