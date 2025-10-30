@@ -1,106 +1,194 @@
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useRouter } from "expo-router";
+import {
+  Image,
+  View as RNView,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
-import { View, Text } from '@/components/common/Themed';
+import { Text, View } from "@/components/common/Themed";
+import { useState } from "react";
+
+const ONBOARDING_DATA = [
+  {
+    id: 1,
+    content: (
+      <>
+        스마트워치를 연동해{"\n"}
+        모든 수영 기록을 자동으로 {"\n"}
+        불러오세요.
+      </>
+    ),
+    isFinal: false,
+  },
+  {
+    id: 2,
+    content: (
+      <>
+        수영 일지를 남기고,{"\n"}
+        수영 기록을 피드로 공유하세요.
+      </>
+    ),
+    isFinal: false,
+  },
+  {
+    id: 3,
+    content: (
+      <>
+        나의 성장과 순위를 확인하며{"\n"}
+        매일 더 나아가세요.
+      </>
+    ),
+    isFinal: true, // 마지막 페이지임을 표시
+  },
+];
+
+const TOTAL_PAGES = ONBOARDING_DATA.length; // 실제로는 스와이프 로직에서 처리
 
 export default function OnboardingScreen() {
   const router = useRouter();
 
+  // 현재 페이지 인덱스 상태
+  const [currentPageIndex, setCurrentPageIndex] = useState(0);
+
+  // 현재 페이지 데이터
+  const currentItem = ONBOARDING_DATA[currentPageIndex];
+  const isLastPage = currentItem.isFinal;
+
+  // 화면 전체 탭하면 호출되는 함수
+  const handleNext = () => {
+    if (currentPageIndex < TOTAL_PAGES - 1) {
+      setCurrentPageIndex(currentPageIndex + 1); // 다음 페이지로 이동
+    } else {
+      // 마지막 페이지에서 탭하면 인증 화면으로 이동
+      router.replace("/(auth)");
+    }
+  };
+
+  // 인증 화면으로 최종 이동하는 함수 (시작하기 버튼용)
   const handleStart = () => {
-    // 온보딩 완료 후 인증 화면으로 이동
-    router.replace('/(auth)');
+    router.replace("/(auth)");
+  };
+
+  // 인디케이터 렌더링 함수
+  const renderIndicators = () => {
+    return Array.from({ length: TOTAL_PAGES }).map((_, index) => (
+      <RNView
+        key={index}
+        style={[
+          styles.dot,
+          index === currentPageIndex ? styles.activeDot : null,
+        ]}
+      />
+    ));
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.icon}>🏊‍♂️</Text>
-        <Text style={styles.title}>수영 기록을 시작하세요</Text>
-        <Text style={styles.description}>
-          매일의 수영 활동을 기록하고{'\n'}
-          목표를 달성해보세요
-        </Text>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={1} // 탭할 때 투명도 변화 없게 설정
+      onPress={isLastPage ? undefined : handleNext} // 마지막 페이지가 아니면 handleNext 호출
+    >
+      <RNView style={{ flex: 1 }} />
 
-        <View style={styles.features}>
-          <View style={styles.feature}>
-            <Text style={styles.featureIcon}>📊</Text>
-            <Text style={styles.featureText}>통계 분석</Text>
-          </View>
-          <View style={styles.feature}>
-            <Text style={styles.featureIcon}>🎯</Text>
-            <Text style={styles.featureText}>목표 설정</Text>
-          </View>
-          <View style={styles.feature}>
-            <Text style={styles.featureIcon}>🏆</Text>
-            <Text style={styles.featureText}>랭킹 확인</Text>
-          </View>
-        </View>
+      {/* 상단 콘텐츠 영역 */}
+      <View style={styles.contentSection}>
+        <RNView style={styles.header}>
+          <Image
+            source={require("@/assets/images/heum-logo.png")}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+          <RNView style={styles.indicatorContainer}>
+            {renderIndicators()}
+          </RNView>
+        </RNView>
 
-        <TouchableOpacity style={styles.startButton} onPress={handleStart}>
-          <Text style={styles.startButtonText}>시작하기</Text>
-        </TouchableOpacity>
+        {/* 텍스트 */}
+        <Text style={styles.content}>{currentItem.content}</Text>
       </View>
-    </View>
+
+      {/* 2. 하단 버튼 영역 */}
+      <RNView style={styles.bottomSection}>
+        {!isLastPage ? (
+          // 💡 마지막 페이지가 아닐 때: "탭하여 계속하기"
+          <Text style={styles.tabButtonText}>탭하여 계속하기</Text>
+        ) : (
+          // 💡 마지막 페이지일 때: "시작하기" 버튼
+          <TouchableOpacity style={styles.startButton} onPress={handleStart}>
+            <Text style={styles.startButtonText}>시작하기</Text>
+          </TouchableOpacity>
+        )}
+      </RNView>
+    </TouchableOpacity>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: "#fff",
+    paddingHorizontal: 32,
   },
-  content: {
+
+  contentSection: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 24,
   },
-  icon: {
-    fontSize: 100,
-    marginBottom: 24,
+
+  header: {
+    marginBottom: 30,
   },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#111827',
-    marginBottom: 12,
-    textAlign: 'center',
+
+  logo: {
+    width: 100,
+    height: 100,
   },
-  description: {
-    fontSize: 16,
-    color: '#6B7280',
-    textAlign: 'center',
-    marginBottom: 48,
-    lineHeight: 24,
+
+  indicatorContainer: {
+    flexDirection: "row",
+    marginLeft: 4,
   },
-  features: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '100%',
-    marginBottom: 48,
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: "#D1D5DB",
+    marginHorizontal: 3,
   },
-  feature: {
-    alignItems: 'center',
+  activeDot: {
+    backgroundColor: "#111827",
+    width: 16,
   },
-  featureIcon: {
-    fontSize: 48,
-    marginBottom: 8,
+
+  content: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "#111827",
+    lineHeight: 32,
   },
-  featureText: {
+
+  bottomSection: {
+    flex: 1,
+    paddingBottom: 40, // 하단에서 띄우는 간격
+    justifyContent: "flex-end",
+    alignItems: "center",
+    height: 100, // 버튼 영역 높이 확보
+  },
+
+  tabButtonText: {
+    color: "#5D5D5B",
     fontSize: 14,
-    color: '#4B5563',
   },
+
   startButton: {
-    backgroundColor: '#3B82F6',
+    backgroundColor: "#4285EA",
     borderRadius: 12,
     padding: 16,
-    width: '100%',
-    alignItems: 'center',
+    width: "100%",
+    alignItems: "center",
   },
   startButtonText: {
-    color: 'white',
+    color: "white",
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "600",
   },
 });
-

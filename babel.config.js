@@ -1,15 +1,32 @@
-module.exports = function(api) {
-    api.cache(true);
-    return {
-        presets: [
-            'babel-preset-expo',
-            // NativeWind v4는 babel preset입니다 (react-native-css-interop/babel re-export)
-            'nativewind/babel',
-        ],
-        plugins: [
-            // Reanimated v4에서는 worklets 플러그인이 사용되며,
-            // nativewind/babel 내부에 포함되어 있어 별도 추가가 필요 없습니다.
-            // 필요 시 다른 프로젝트용 플러그인을 여기에 추가하세요.
-        ],
-    };
+module.exports = function (api) {
+  api.cache(true);
+
+  return {
+    presets: [
+      // 1. expo 프리셋과 함께 nativewind 옵션 지정
+      ["babel-preset-expo", { jsxImportSource: "nativewind" }],
+
+      // 2. NativeWind Babel 플러그인 추가 (presets 배열 안에 있어야 함)
+      "nativewind/babel",
+    ],
+    plugins: [
+      // ✅ 경로 alias 설정 (plugins에 유지합니다)
+      [
+        "module-resolver",
+        {
+          root: ["./"],
+          alias: {
+            "@": "./src",
+            "@assets": "./src/assets",
+            "@components": "./src/components",
+            "@constants": "./src/constants",
+            "@features": "./src/features",
+            "@hooks": "./src/hooks",
+          },
+        },
+      ],
+
+      "react-native-reanimated/plugin",
+    ],
+  };
 };

@@ -1,86 +1,111 @@
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { useRouter } from 'expo-router';
-import { View, Text } from '@/components/common/Themed';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 export default function AuthScreen() {
   const router = useRouter();
 
-  const handleLogin = () => {
-    // 로그인 로직 구현 후 메인 화면으로 이동
-    router.replace('/(main)/(tabs)');
+  const handleLogin = (type: string) => {
+    console.log(`${type} 로그인`);
+    router.replace("/(main)/(tabs)");
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.logo}>🏊‍♂️</Text>
-        <Text style={styles.title}>Heum</Text>
-        <Text style={styles.subtitle}>수영 기록 앱</Text>
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.logoSection}>
+        <Image
+          source={require("@/assets/images/heum-logo.png")}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+        <Text style={styles.title}>환영합니다!</Text>
+        <Text style={styles.subtitle}>
+          3초 만에 가입하고,{"\n"}나만의 훈련 기록을 지금 바로 시작하세요.
+        </Text>
+      </View>
 
-        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-          <Text style={styles.loginButtonText}>로그인</Text>
+      <View style={styles.buttonGroup}>
+        {/* Google */}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleLogin("Google")}
+        >
+          <MaterialCommunityIcons name="google" size={20} color="#000" />
+          <Text style={styles.buttonText}>구글로 시작하기</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.signupButton}>
-          <Text style={styles.signupButtonText}>회원가입</Text>
+        {/* Apple */}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleLogin("Apple")}
+        >
+          <MaterialCommunityIcons name="apple" size={20} color="#000" />
+          <Text style={styles.buttonText}>애플로 시작하기</Text>
+        </TouchableOpacity>
+
+        {/* Kakao */}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleLogin("Kakao")}
+        >
+          <MaterialCommunityIcons name="message-text" size={20} color="#000" />
+          <Text style={styles.buttonText}>카카오로 시작하기</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#3B82F6',
+    flexGrow: 1,
+    justifyContent: "center",
+    paddingHorizontal: 32,
+    backgroundColor: "#fff",
   },
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 24,
+  logoSection: {
+    alignItems: "flex-start",
+    marginBottom: 80,
   },
   logo: {
-    fontSize: 80,
-    marginBottom: 16,
+    width: 100,
+    height: 100,
   },
   title: {
-    fontSize: 48,
-    fontWeight: 'bold',
-    color: 'white',
-    marginBottom: 8,
+    fontSize: 28,
+    fontWeight: "700",
+    color: "#111827",
+    marginBottom: 10,
   },
   subtitle: {
-    fontSize: 18,
-    color: 'rgba(255, 255, 255, 0.8)',
-    marginBottom: 48,
+    fontSize: 15,
+    color: "#6B7280",
+    lineHeight: 22,
   },
-  loginButton: {
-    backgroundColor: 'white',
+  buttonGroup: {
+    width: "100%",
+    gap: 12,
+  },
+  button: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    borderColor: "#E5E7EB",
+    borderWidth: 1,
     borderRadius: 12,
-    padding: 16,
-    width: '100%',
-    alignItems: 'center',
-    marginBottom: 12,
+    paddingVertical: 16,
   },
-  loginButtonText: {
-    color: '#3B82F6',
+  buttonText: {
     fontSize: 16,
-    fontWeight: '600',
-  },
-  signupButton: {
-    backgroundColor: 'transparent',
-    borderWidth: 2,
-    borderColor: 'white',
-    borderRadius: 12,
-    padding: 16,
-    width: '100%',
-    alignItems: 'center',
-  },
-  signupButtonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "500",
+    color: "#111827",
   },
 });
-
