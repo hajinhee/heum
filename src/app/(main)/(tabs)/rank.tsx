@@ -1,9 +1,15 @@
-import { StyleSheet, ScrollView } from 'react-native';
-import { View, Text } from '@/components/common/Themed';
+import { Text, View } from "@/components/common/Themed";
+import { ScrollView, StyleSheet } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function RankScreen() {
+  const insets = useSafeAreaInsets();
+
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={[{ paddingTop: insets.top }]}
+    >
       <View style={styles.content}>
         <Text style={styles.title}>랭킹</Text>
         <Text style={styles.subtitle}>다른 수영인들과 경쟁하세요</Text>
@@ -21,35 +27,34 @@ export default function RankScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: "#FFFFFF",
   },
   content: {
     padding: 16,
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#111827',
+    fontWeight: "bold",
+    color: "#111827",
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 14,
-    color: '#6B7280',
+    color: "#6B7280",
     marginBottom: 24,
   },
   placeholder: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 16,
     padding: 48,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     minHeight: 300,
   },
   placeholderText: {
     fontSize: 16,
-    color: '#9CA3AF',
-    textAlign: 'center',
+    color: "#9CA3AF",
+    textAlign: "center",
     marginTop: 8,
   },
 });
-

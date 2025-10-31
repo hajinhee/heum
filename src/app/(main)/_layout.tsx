@@ -1,5 +1,5 @@
-import { Stack } from 'expo-router';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { Stack } from "expo-router";
 
 export default function MainLayout() {
   const colorScheme = useColorScheme();
@@ -7,19 +7,21 @@ export default function MainLayout() {
   return (
     <Stack
       screenOptions={{
+        // 헤더 공통 기본 스타일
         headerStyle: {
-          backgroundColor: colorScheme === 'dark' ? '#1F2937' : '#FFFFFF',
+          backgroundColor: colorScheme === "dark" ? "#1F2937" : "#FFFFFF",
         },
-        headerTintColor: colorScheme === 'dark' ? '#FFFFFF' : '#111827',
+        headerTintColor: colorScheme === "dark" ? "#FFFFFF" : "#111827",
         headerTitleStyle: {
-          fontWeight: '600',
+          fontWeight: "600",
         },
-      }}>
+      }}
+    >
       {/* 탭 네비게이션 */}
       <Stack.Screen
         name="(tabs)"
         options={{
-          headerShown: false
+          headerShown: false,
         }}
       />
 
@@ -27,20 +29,20 @@ export default function MainLayout() {
       <Stack.Screen
         name="record/create"
         options={{
-          title: '수영 기록 추가',
-          presentation: 'modal',
+          title: "수영 기록 추가",
+          presentation: "modal",
         }}
       />
       <Stack.Screen
         name="record/[date]"
         options={{
-          title: '수영 기록 상세',
+          title: "수영 기록 상세",
         }}
       />
       <Stack.Screen
         name="record/edit/[id]"
         options={{
-          title: '기록 수정',
+          title: "기록 수정",
         }}
       />
 
@@ -48,7 +50,7 @@ export default function MainLayout() {
       <Stack.Screen
         name="search/pool"
         options={{
-          title: '수영장 검색',
+          title: "수영장 검색",
         }}
       />
     </Stack>
