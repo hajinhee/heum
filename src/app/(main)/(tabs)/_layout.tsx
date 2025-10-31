@@ -3,7 +3,7 @@ import { Tabs } from "expo-router";
 import React from "react";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 
 function Icon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -13,10 +13,7 @@ function Icon(props: {
 }
 
 const NotificationIcon = () => (
-  <TouchableOpacity
-    onPress={() => console.log("알림 클릭")}
-    style={{ padding: 5 }}
-  >
+  <TouchableOpacity onPress={() => console.log("알림 클릭")}>
     <Ionicons name="notifications-outline" size={24} color="black" />
   </TouchableOpacity>
 );
@@ -24,7 +21,7 @@ const NotificationIcon = () => (
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
-  const localProfileImage = require("@/assets/images/pofile.png");
+  const localProfileImage = require("@/assets/images/profile.png");
   const userProfileImageSource = localProfileImage;
   const hasProfileImage = !!userProfileImageSource;
 
@@ -34,9 +31,9 @@ export default function TabLayout() {
         tabBarActiveTintColor: "#4285EA",
         tabBarInactiveTintColor: "#B0B0B0",
         tabBarStyle: {
-          backgroundColor: colorScheme === "dark" ? "#1F2937" : "#FFFFFF",
+          backgroundColor: "#FFFFFF",
           borderTopWidth: 1,
-          borderTopColor: colorScheme === "dark" ? "#374151" : "#E5E7EB",
+          borderTopColor: "#E5E7EB",
           height: 80,
           paddingBottom: 8,
           paddingTop: 8,
@@ -62,7 +59,7 @@ export default function TabLayout() {
               <NotificationIcon />
 
               {/* 프로필 사진 */}
-              <TouchableOpacity onPress={() => console.log("프로필 클릭")}>
+              {/* <TouchableOpacity onPress={() => console.log("프로필 클릭")}>
                 {hasProfileImage ? (
                   <Image
                     source={userProfileImageSource}
@@ -90,7 +87,7 @@ export default function TabLayout() {
                     </Text>
                   </View>
                 )}
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           ),
           headerStyle: {
@@ -107,7 +104,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Icon name="bar-chart" color={color} />,
           headerTitle: "통계",
           headerRight: () => (
-            <View style={{ marginRight: 10 }}>
+            <View style={{ marginRight: 16 }}>
               <NotificationIcon />
             </View>
           ),
@@ -127,6 +124,7 @@ export default function TabLayout() {
                 flexDirection: "row",
                 alignItems: "center",
                 marginRight: 16,
+                gap: 10,
               }}
             >
               <NotificationIcon />
@@ -151,6 +149,7 @@ export default function TabLayout() {
                 flexDirection: "row",
                 alignItems: "center",
                 marginRight: 16,
+                gap: 10,
               }}
             >
               <NotificationIcon />
@@ -159,6 +158,9 @@ export default function TabLayout() {
               </TouchableOpacity>
             </View>
           ),
+          headerStyle: {
+            backgroundColor: "#4285EA",
+          },
           headerTransparent: false,
           headerShadowVisible: false,
         }}
@@ -180,12 +182,6 @@ export default function TabLayout() {
               </TouchableOpacity>
             </View>
           ),
-
-          // headerStyle: {
-          //   backgroundColor: "white",
-          // },
-          // headerTransparent: false,
-          // headerShadowVisible: false,
           headerTransparent: true,
         }}
       />

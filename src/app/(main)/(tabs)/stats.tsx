@@ -1,17 +1,26 @@
+import SegmentedControl from "@/components/common/SegmentedControl";
 import { Text, View } from "@/components/common/Themed";
+import { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 
+const STATS_TIME_OPTIONS = ["Week", "Month", "Year"];
+
 export default function StatsScreen() {
+  const [selectedIndex, setSelectedIndex] = useState(0); // 기본값: 'Week'
   return (
     <ScrollView style={styles.container}>
+      <View style={styles.segmentedControlWrapper}>
+        <SegmentedControl
+          options={STATS_TIME_OPTIONS}
+          selectedIndex={selectedIndex}
+          onSelect={setSelectedIndex}
+        />
+      </View>
       <View style={styles.content}>
-        <Text style={styles.title}>수영 통계</Text>
-        <Text style={styles.subtitle}>당신의 수영 기록을 확인하세요</Text>
-
-        {/* 여기에 통계 차트와 데이터를 추가할 수 있습니다 */}
         <View style={styles.placeholder}>
-          <Text style={styles.placeholderText}>📊</Text>
-          <Text style={styles.placeholderText}>통계 데이터가 표시됩니다</Text>
+          <Text style={styles.placeholderText}>
+            {STATS_TIME_OPTIONS[selectedIndex]} 통계 데이터
+          </Text>
         </View>
       </View>
     </ScrollView>
@@ -23,19 +32,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFFFFF",
   },
+  segmentedControlWrapper: {
+    // paddingHorizontal: 16,
+    // paddingVertical: 10,
+    padding: 16,
+    backgroundColor: "#FFFFFF",
+  },
   content: {
     padding: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#111827",
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: "#6B7280",
-    marginBottom: 24,
   },
   placeholder: {
     backgroundColor: "white",

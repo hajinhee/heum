@@ -9,9 +9,9 @@ export default function MainLayout() {
       screenOptions={{
         // 헤더 공통 기본 스타일
         headerStyle: {
-          backgroundColor: colorScheme === "dark" ? "#1F2937" : "#FFFFFF",
+          backgroundColor: "#FFFFFF",
         },
-        headerTintColor: colorScheme === "dark" ? "#FFFFFF" : "#111827",
+        headerTintColor: "#111827",
         headerTitleStyle: {
           fontWeight: "600",
         },

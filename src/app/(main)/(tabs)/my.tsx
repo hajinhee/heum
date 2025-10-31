@@ -1,13 +1,18 @@
 import { Text, View } from "@/components/common/Themed";
+import {
+  Avatar,
+  AvatarFallbackText,
+  AvatarImage,
+} from "@/components/ui/avatar";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { Image, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function MyScreen() {
   const insets = useSafeAreaInsets();
 
   // 프로필 사진
-  const localProfileImage = require("@/assets/images/pofile.png");
+  const localProfileImage = require("@/assets/images/profile.png");
   const userProfileImageSource = localProfileImage;
   const hasProfileImage = !!userProfileImageSource;
 
@@ -23,13 +28,10 @@ export default function MyScreen() {
         {/* 프로필 섹션 */}
         <View>
           <View style={styles.profileSection}>
-            {hasProfileImage ? (
-              <Image source={userProfileImageSource} style={styles.avatar} />
-            ) : (
-              <View style={styles.avatar}>
-                <Text style={styles.avatarText}>청</Text>
-              </View>
-            )}
+            <Avatar size="lg">
+              <AvatarFallbackText>청학동 수달</AvatarFallbackText>
+              <AvatarImage source={require("@/assets/images/profile.png")} />
+            </Avatar>
             <View>
               <Text style={styles.nickname}>청학동 수달님</Text>
               <Text style={styles.email}>user@example.com</Text>
@@ -173,21 +175,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
     gap: 10,
-    borderRadius: 16,
     marginBottom: 16,
-  },
-  avatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: "#3B82F6",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  avatarText: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
   },
   nickname: {
     fontSize: 20,

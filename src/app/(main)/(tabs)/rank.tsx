@@ -1,23 +1,32 @@
+import SegmentedControl from "@/components/common/SegmentedControl";
 import { Text, View } from "@/components/common/Themed";
+import { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
+const RANK_TIME_OPTIONS = ["Weekly", "All Time"];
+
 export default function RankScreen() {
   const insets = useSafeAreaInsets();
+  const [selectedIndex, setSelectedIndex] = useState(0); // 기본값: 'Weekly'
 
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={[{ paddingTop: insets.top }]}
-    >
+    <ScrollView style={styles.container}>
+      <View style={styles.segmentedControlWrapper}>
+        <SegmentedControl
+          options={RANK_TIME_OPTIONS}
+          selectedIndex={selectedIndex}
+          onSelect={setSelectedIndex}
+          alphaValue={0.3}
+          activeTextColor={"#4285EA"}
+          inactiveTextColor={"#FFFFFF"}
+        />
+      </View>
       <View style={styles.content}>
-        <Text style={styles.title}>랭킹</Text>
-        <Text style={styles.subtitle}>다른 수영인들과 경쟁하세요</Text>
-
-        {/* 여기에 랭킹 목록을 추가할 수 있습니다 */}
         <View style={styles.placeholder}>
-          <Text style={styles.placeholderText}>🏆</Text>
-          <Text style={styles.placeholderText}>랭킹 정보가 표시됩니다</Text>
+          <Text style={styles.placeholderText}>
+            {RANK_TIME_OPTIONS[selectedIndex]} 랭킹 데이터
+          </Text>
         </View>
       </View>
     </ScrollView>
@@ -27,33 +36,27 @@ export default function RankScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#4285EA",
+  },
+  segmentedControlWrapper: {
+    padding: 16,
+    backgroundColor: "#4285EA",
   },
   content: {
     padding: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#111827",
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: "#6B7280",
-    marginBottom: 24,
+    backgroundColor: "#4285EA",
   },
   placeholder: {
-    backgroundColor: "white",
     borderRadius: 16,
     padding: 48,
     alignItems: "center",
     justifyContent: "center",
     minHeight: 300,
+    backgroundColor: "#4285EA",
   },
   placeholderText: {
     fontSize: 16,
-    color: "#9CA3AF",
+    color: "#FFFFFF",
     textAlign: "center",
     marginTop: 8,
   },

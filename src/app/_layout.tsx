@@ -1,9 +1,5 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
+import { DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { Stack, useRouter } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -71,8 +67,8 @@ function RootLayoutNav() {
   }, [authenticationReady, isFirstTime, isLoggedIn]); // 상태 변경 시 재실행
 
   return (
-    <GluestackUIProvider mode="dark">
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+    <GluestackUIProvider>
+      <ThemeProvider value={DefaultTheme}>
         <Stack>
           {/* 온보딩 화면 */}
           <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
