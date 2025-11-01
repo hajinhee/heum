@@ -33,8 +33,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
   },
   segmentedControlWrapper: {
-    // paddingHorizontal: 16,
-    // paddingVertical: 10,
     padding: 16,
     backgroundColor: "#FFFFFF",
   },

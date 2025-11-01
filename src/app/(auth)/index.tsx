@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   buttonGroup: {
     width: "100%",
-    gap: 12,
+    gap: 10,
   },
   button: {
     flexDirection: "row",

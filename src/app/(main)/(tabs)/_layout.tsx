@@ -12,12 +12,6 @@ function Icon(props: {
   return <FontAwesome style={{ marginBottom: 5 }} size={24} {...props} />;
 }
 
-const NotificationIcon = () => (
-  <TouchableOpacity onPress={() => console.log("알림 클릭")}>
-    <Ionicons name="notifications-outline" size={24} color="black" />
-  </TouchableOpacity>
-);
-
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -56,7 +50,13 @@ export default function TabLayout() {
               }}
             >
               {/* 알림 버튼 */}
-              <NotificationIcon />
+              <TouchableOpacity onPress={() => console.log("알림 클릭")}>
+                <Ionicons
+                  name="notifications-outline"
+                  color="black"
+                  size={24}
+                />
+              </TouchableOpacity>
 
               {/* 프로필 사진 */}
               {/* <TouchableOpacity onPress={() => console.log("프로필 클릭")}>
@@ -104,9 +104,12 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Icon name="bar-chart" color={color} />,
           headerTitle: "통계",
           headerRight: () => (
-            <View style={{ marginRight: 16 }}>
-              <NotificationIcon />
-            </View>
+            <TouchableOpacity
+              onPress={() => console.log("알림 클릭")}
+              style={{ marginRight: 16 }}
+            >
+              <Ionicons name="notifications-outline" color="black" size={24} />
+            </TouchableOpacity>
           ),
           headerTransparent: false,
           headerShadowVisible: false,
@@ -127,7 +130,13 @@ export default function TabLayout() {
                 gap: 10,
               }}
             >
-              <NotificationIcon />
+              <TouchableOpacity onPress={() => console.log("알림 클릭")}>
+                <Ionicons
+                  name="notifications-outline"
+                  color="black"
+                  size={24}
+                />
+              </TouchableOpacity>
               <TouchableOpacity onPress={() => console.log("검색 클릭")}>
                 <Ionicons name="search-outline" size={24} color="black" />
               </TouchableOpacity>
@@ -143,6 +152,7 @@ export default function TabLayout() {
           title: "랭킹",
           tabBarIcon: ({ color }) => <Icon name="trophy" color={color} />,
           headerTitle: "랭킹",
+          headerTintColor: "white",
           headerRight: () => (
             <View
               style={{
@@ -152,9 +162,15 @@ export default function TabLayout() {
                 gap: 10,
               }}
             >
-              <NotificationIcon />
+              <TouchableOpacity onPress={() => console.log("알림 클릭")}>
+                <Ionicons
+                  name="notifications-outline"
+                  color="white"
+                  size={24}
+                />
+              </TouchableOpacity>
               <TouchableOpacity onPress={() => console.log("필터 클릭")}>
-                <Ionicons name="options-outline" size={24} color="black" />
+                <Ionicons name="options-outline" size={24} color="white" />
               </TouchableOpacity>
             </View>
           ),
