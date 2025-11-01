@@ -1,5 +1,5 @@
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import { router, Tabs } from "expo-router";
 import React from "react";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
@@ -23,7 +23,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: "#4285EA",
-        tabBarInactiveTintColor: "#B0B0B0",
+        tabBarInactiveTintColor: "#888",
         tabBarStyle: {
           backgroundColor: "#FFFFFF",
           borderTopWidth: 1,
@@ -50,7 +50,9 @@ export default function TabLayout() {
               }}
             >
               {/* 알림 버튼 */}
-              <TouchableOpacity onPress={() => console.log("알림 클릭")}>
+              <TouchableOpacity
+                onPress={() => router.push("/(main)/notifications")}
+              >
                 <Ionicons
                   name="notifications-outline"
                   color="black"
@@ -105,7 +107,7 @@ export default function TabLayout() {
           headerTitle: "통계",
           headerRight: () => (
             <TouchableOpacity
-              onPress={() => console.log("알림 클릭")}
+              onPress={() => router.push("/(main)/notifications")}
               style={{ marginRight: 16 }}
             >
               <Ionicons name="notifications-outline" color="black" size={24} />
@@ -115,6 +117,7 @@ export default function TabLayout() {
           headerShadowVisible: false,
         }}
       />
+
       <Tabs.Screen
         name="feed"
         options={{
@@ -130,7 +133,9 @@ export default function TabLayout() {
                 gap: 10,
               }}
             >
-              <TouchableOpacity onPress={() => console.log("알림 클릭")}>
+              <TouchableOpacity
+                onPress={() => router.push("/(main)/notifications")}
+              >
                 <Ionicons
                   name="notifications-outline"
                   color="black"
@@ -162,7 +167,9 @@ export default function TabLayout() {
                 gap: 10,
               }}
             >
-              <TouchableOpacity onPress={() => console.log("알림 클릭")}>
+              <TouchableOpacity
+                onPress={() => router.push("/(main)/notifications")}
+              >
                 <Ionicons
                   name="notifications-outline"
                   color="white"

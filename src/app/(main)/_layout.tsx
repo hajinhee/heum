@@ -1,5 +1,7 @@
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { Stack } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { router, Stack } from "expo-router";
+import { TouchableOpacity, View } from "react-native";
 
 export default function MainLayout() {
   const colorScheme = useColorScheme();
@@ -21,6 +23,7 @@ export default function MainLayout() {
       <Stack.Screen
         name="(tabs)"
         options={{
+          title: "",
           headerShown: false,
         }}
       />
@@ -53,6 +56,48 @@ export default function MainLayout() {
           title: "수영장 검색",
         }}
       />
+
+      {/* 알림 목록 화면 */}
+      <Stack.Screen
+        name="notifications"
+        options={{
+          title: "알림",
+          headerTitle: "알림",
+
+          // headerLeft: () => (
+          //   <TouchableOpacity onPress={() => router.back()} activeOpacity={1}>
+          //     <Ionicons name="chevron-back" size={26} color="black" />
+          //   </TouchableOpacity>
+          // ),
+          headerRight: () => (
+            <View>
+              <TouchableOpacity
+                onPress={() => router.push("/(main)/settings/notifications")}
+              >
+                <Ionicons name="settings-outline" size={24} color="black" />
+              </TouchableOpacity>
+            </View>
+          ),
+          headerShadowVisible: false,
+        }}
+      ></Stack.Screen>
+
+      {/* 알림 설정 화면 */}
+      <Stack.Screen
+        name="settings/notifications"
+        options={{
+          title: "알림 설정",
+          headerTitle: "알림 설정",
+
+          // headerLeft: () => (
+          //   <TouchableOpacity onPress={() => router.back()} activeOpacity={1}>
+          //     <Ionicons name="chevron-back" size={26} color="black" />
+          //   </TouchableOpacity>
+          // ),
+
+          headerShadowVisible: false,
+        }}
+      ></Stack.Screen>
     </Stack>
   );
 }

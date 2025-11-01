@@ -107,7 +107,7 @@ const feedCardStyles = StyleSheet.create({
   },
   email: {
     fontSize: 12,
-    color: "#B0B0B0",
+    color: "#888",
   },
   content: {
     marginBottom: 15,
@@ -137,9 +137,9 @@ const feedCardStyles = StyleSheet.create({
   },
 });
 
-// 무한 스크롤링을 위한 더미 데이터 생성 함수 -> 실제 API 호출로 변경해야 함
+// 무한 스크롤링을 위한 더미 데이터 생성
 const fetchData = (page: number): FeedItem[] => {
-  const pageSize = 10; // 최초 로드 개수
+  const pageSize = 10;
   return Array.from({ length: pageSize }, (_, i) => {
     const globalIndex = (page - 1) * pageSize + i;
     const nickname = "청학동 수달";
@@ -160,6 +160,7 @@ const fetchData = (page: number): FeedItem[] => {
     };
   }).reverse();
 };
+
 export default function FeedScreen() {
   const [data, setData] = useState<FeedItem[]>([]);
   const [page, setPage] = useState(1);
@@ -215,7 +216,6 @@ export default function FeedScreen() {
           flexGrow: 1,
         }}
       />
-      {/* 초기 로딩 상태 (데이터가 없을 때 스켈레톤을 보여줄 자리) */}
     </View>
   );
 }

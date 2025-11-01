@@ -5,6 +5,7 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -97,7 +98,10 @@ export default function MyScreen() {
               </View>
               <Ionicons name="chevron-forward" size={18} color="#B0B0B0" />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem}>
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => router.push("/(main)/settings/notifications")}
+            >
               <View style={styles.iconTextWrapper}>
                 <Ionicons name="notifications" size={18} color="black" />
                 <Text style={styles.menuText}>알림 설정</Text>
